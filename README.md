@@ -1,6 +1,6 @@
 # ExportAllToCsv
 
-This is an addon for LibreOffice/OpenOffice.org to export all worksheets of a spreadsheet to multiple CSV files.
+This is an addon for LibreOffice/OpenOffice.org Calc to export all worksheets of a spreadsheet to multiple CSV files.
 
 ## Installation
 
