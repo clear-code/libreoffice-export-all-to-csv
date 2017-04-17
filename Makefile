@@ -1,6 +1,11 @@
 ADDON_FILE=ExportAllToCsv.oxt
 
-all:
+all: ExportAllToCsv.oxt
+
+install: ExportAllToCsv.oxt
+	soffice ExportAllToCsv.oxt
+
+ExportAllToCsv.oxt:
 	rm -f *.oxt
 	rm -rf ./tmp
 	mkdir ./tmp
