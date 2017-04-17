@@ -22,29 +22,33 @@ $ install -C bin/ods2csv ~/local/bin/
 $ install -C bin/odscat ~/local/bin/
 ~~~
 
+Not only ods (OpenDocument Format: LibreOffice/OpenOffice.org), but xls and xlsx (Microsoft Excel) are also available as the input.
+
 ### `ods2csv`
 
-It converts given ods files to CSV files. All CSV files are placed to the working directory.
+It converts given files to CSV files. All CSV files are placed to the working directory.
 
 ### `odscat`
 
-It converts given ods files to CSV and output all to the standard output. It will be useful to compare multiple ods files with the `diff` command.
+It converts given files to CSV and output all to the standard output. It will be useful to compare multiple ods files with the `diff` command.
 
 ## Combination with Git
 
-If you hope to show differenfe of an ods file by `git diff`, `odscat` will help you.
+If you hope to show differenfe of ods or xls(x) files via `git diff`, `odscat` will help you.
 
 1. Register `odscat` as a filter. Put following configuration to your `~/.gitconfig`:
    
    ~~~
-   [diff "ods"]
+   [diff "spreadsheet"]
            textconv = ~/local/bin/odscat
    ~~~
    
 2. Put `.gitattributes` into your repository to use the filter, like:
    
    ~~~
-   *.ods diff=ods
+   *.ods diff=spreadsheet
+   *.xls diff=spreadsheet
+   *.xlsx diff=spreadsheet
    ~~~
 
 Then you'll see CSV diff for ods files via `git diff`.
