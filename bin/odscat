@@ -8,6 +8,13 @@ then
   echo '  odscat /path/to/file.ods ...' 1>&2
 fi
 
+if pgrep soffice >/dev/null
+then
+  echo 'Error: This command cannot work if any other LibreOffice process lives.' 1>&2
+  echo '       Retry after you exit LibreOffice.' 1>&2
+  exit 2
+fi
+
 _odscat() {
   soffice --invisible --nofirststartwizard --norestore --headless "$1" macro:///ExportAllToCsv.Module.ExportAllToCsvAndExit 
   for csv in *.csv

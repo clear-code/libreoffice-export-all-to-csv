@@ -9,6 +9,13 @@ then
   exit 1
 fi
 
+if pgrep soffice >/dev/null
+then
+  echo 'Error: This command cannot work if any other LibreOffice process lives.' 1>&2
+  echo '       Retry after you exit LibreOffice.' 1>&2
+  exit 2
+fi
+
 _ods2csv() {
   soffice --invisible --nofirststartwizard --norestore --headless "$1" macro:///ExportAllToCsv.Module.ExportAllToCsvAndExit 
 }
