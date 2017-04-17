@@ -1,0 +1,16 @@
+#!/bin/bash
+
+tempdir="$(mktemp -d)"
+cp "$1" "$tempdir/"
+cd "$tempdir"
+
+soffice --invisible --nofirststartwizard --norestore --headless "$(basename "$1")" "macro:///ExportAllToCsv.Module.ExportAllToCsvAndExit"
+
+for csv in *.csv
+do
+  echo "$csv:"
+  cat "$csv"
+done
+
+cd -
+rm -rf "$tempdir"
