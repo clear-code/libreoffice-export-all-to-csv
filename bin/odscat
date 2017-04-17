@@ -25,16 +25,16 @@ _odscat() {
 }
 
 tempdir="$(mktemp -d)"
-for ods in "$@"
+for file in "$@"
 do
-  if [ ! -f "$1" ]
+  if [ ! -f "$file" ]
   then
-     echo "Error: $1 is not a regular file." 1>&2
+     echo "Error: $file is not a regular file." 1>&2
      continue
   fi
-  cp "$1" "$tempdir/"
+  cp "$file" "$tempdir/"
   (cd "$tempdir" &&
-     _odscat "$(basename "$1")" &&
+     _odscat "$(basename "$file")" &&
      rm -f "*.csv")
 done
 rm -rf "$tempdir"

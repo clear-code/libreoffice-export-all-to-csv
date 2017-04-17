@@ -21,16 +21,16 @@ _ods2csv() {
 }
 
 tempdir="$(mktemp -d)"
-for ods in "$@"
+for file in "$@"
 do
-  if [ ! -f "$1" ]
+  if [ ! -f "$file" ]
   then
-     echo "Error: $1 is not a regular file." 1>&2
+     echo "Error: $file is not a regular file." 1>&2
      continue
   fi
-  cp "$1" "$tempdir/"
+  cp "$file" "$tempdir/"
   (cd "$tempdir" &&
-     _ods2csv "$(basename "$1")" &&
+     _ods2csv "$(basename "$file")" &&
      mv *.csv "$work_dir")
 done
 rm -rf "$tempdir"
