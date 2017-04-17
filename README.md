@@ -30,7 +30,7 @@ It converts given ods files to CSV files. All CSV files are placed to the workin
 
 It converts given ods files to CSV and output all to the standard output. It will be useful to compare multiple ods files with the `diff` command.
 
-## Comibination with Git
+## Combination with Git
 
 If you hope to show differenfe of an ods file by `git diff`, `odscat` will help you.
 
