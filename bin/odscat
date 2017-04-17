@@ -5,12 +5,16 @@ work_dir="$(pwd)"
 if [ $# -eq 0 ]
 then
   echo 'Usage:'
-  echo '  ods2csv /path/to/file.ods ...'
-  exit 1
+  echo '  odscat /path/to/file.ods ...'
 fi
 
-_ods2csv() {
+_odscat() {
   soffice --invisible --nofirststartwizard --norestore --headless "$1" macro:///ExportAllToCsv.Module.ExportAllToCsvAndExit 
+  for csv in *.csv
+  do
+    echo "$csv:"
+    cat "$csv"
+  done
 }
 
 tempdir="$(mktemp -d)"
@@ -18,7 +22,7 @@ for ods in "$@"
 do
   cp "$1" "$tempdir/"
   (cd "$tempdir" &&
-     _ods2csv "$(basename "$1")" &&
-     mv *.csv "$work_dir")
+     _odscat "$(basename "$1")" &&
+     rm -f "*.csv")
 done
 rm -rf "$tempdir"
