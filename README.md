@@ -4,7 +4,7 @@ This is an addon for LibreOffice/OpenOffice.org Calc to export all worksheets of
 
 ## Installation
 
-Pre-built binary are also available at the [releases page](https://github.com/clear-code/libreoffice-export-all-to-csv/releases).
+Pre-built packages are also available at the [releases page](https://github.com/clear-code/libreoffice-export-all-to-csv/releases).
 
  1. Clone this repository to somewhere.
  2. Run `make install`.
