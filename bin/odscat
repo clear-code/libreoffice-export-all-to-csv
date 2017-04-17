@@ -4,8 +4,8 @@ work_dir="$(pwd)"
 
 if [ $# -eq 0 ]
 then
-  echo 'Usage:'
-  echo '  odscat /path/to/file.ods ...'
+  echo 'Usage:' 1>&2
+  echo '  odscat /path/to/file.ods ...' 1>&2
 fi
 
 _odscat() {

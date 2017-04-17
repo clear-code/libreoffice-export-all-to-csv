@@ -4,8 +4,8 @@ work_dir="$(pwd)"
 
 if [ $# -eq 0 ]
 then
-  echo 'Usage:'
-  echo '  ods2csv /path/to/file.ods ...'
+  echo 'Usage:' 1>&2
+  echo '  ods2csv /path/to/file.ods ...' 1>&2
   exit 1
 fi
 
