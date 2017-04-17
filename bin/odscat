@@ -1,7 +1,5 @@
 #!/bin/bash
 
-work_dir="$(pwd)"
-
 if [ $# -eq 0 ]
 then
   echo 'Usage:' 1>&2
