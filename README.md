@@ -11,7 +11,9 @@ Pre-built packages are also available at the [releases page](https://github.com/
  3. Then LibreOffice starts and shows a confirmation dialog for the installation. Click "OK".
  4. Restart LibreOffice.
 
-Then you'll see "Tools" => "Add-on" => "Export All Sheets to CSV files" menuitem.
+## Usage
+
+Choose "Tools" => "Add-on" => "Export All Sheets to CSV files" menuitem, then worksheets will be exported as "(basename of the original file).(worksheet's name).csv" files.
 
 ## Command line utilities
 
@@ -28,7 +30,7 @@ Not only ods (OpenDocument Format: LibreOffice/OpenOffice.org), but xls and xlsx
 
 It converts given files to CSV files. All CSV files are placed to the working directory.
 
-This is very similar to `ssconvert`, a part of [Gnumeric](http://www.gnumeric.org/). `ssconvert -S input.ods output.csv` also converts all worksheets to separate CSV files. If you don't worry to install Gnumeric, try it!
+This is very similar to `ssconvert` (a part of [Gnumeric](http://www.gnumeric.org/)), except names of exported CSV files. `ssconvert -S input.ods output.csv` also converts all worksheets to separate numbered CSV files. If you don't worry to install Gnumeric, try it also!
 
 ### `odscat`
 
