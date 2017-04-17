@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE script:module PUBLIC "-//OpenOffice.org//DTD OfficeDocument 1.0//EN" "module.dtd">
+<script:module xmlns:script="http://openoffice.org/2000/script" script:name="Module" script:language="StarBasic">Sub ExportAllToCsv
+	document = ThisComponent
+	GlobalScope.BasicLibraries.loadLibrary("Tools")
+	baseName = Tools.Strings.GetFileNameWithoutExtension(document.GetURL(), "/")
+	directory = Tools.Strings.DirectoryNameoutofPath(document.GetURL(), "/")
+
+	Dim saveParams(1) as New com.sun.star.beans.PropertyValue
+	saveParams(0).Name = "FilterName"
+	saveParams(0).Value = "Text - txt - csv (StarCalc)"
+	saveParams(1).Name = "FilterOptions"
+	saveParams(1).Value = "44,34,0,1,1" ' 44=comma, 34=double-quote
+
+	sheets = document.Sheets
+	currentSheet = document.GetCurrentController.GetActiveSheet()
+	For Each sheet in sheets()
+		sheetName = sheet.Name
+		document.GetCurrentController.SetActiveSheet(sheet)
+		filename = directory + "/" + baseName + "." + sheetName + ".csv"
+		fileURL = convertToURL(Filename)
+		document.StoreToURL(fileURL, saveParams())
+	Next sheet
+
+	document.GetCurrentController.setActiveSheet(currentSheet)
+End Sub
+
+Sub ExportAllToCsvAndExit
+	ExportAllToCsv
+	ThisComponent.close(True)
+End Sub
+</script:module>
