@@ -30,7 +30,7 @@ Not only ods (OpenDocument Format: LibreOffice/OpenOffice.org), but xls and xlsx
 
 It converts given files to CSV files. All CSV files are placed to the working directory.
 
-This is very similar to `ssconvert` (a part of [Gnumeric](http://www.gnumeric.org/)), except names of exported CSV files. `ssconvert -S input.ods output.csv` also converts all worksheets to separate numbered CSV files. If you don't worry to install Gnumeric, try it also!
+This is very similar to `ssconvert` (a part of [Gnumeric](http://www.gnumeric.org/)). `ssconvert -S input.ods output.%s.csv` also converts all worksheets to separate CSV files with worksheet name. If you don't worry to install Gnumeric, try it also!
 
 ### `odscat`
 
