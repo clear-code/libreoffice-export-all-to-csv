@@ -47,7 +47,7 @@ If you hope to show differenfe of ods or xls(x) files via `git diff`, `odscat` w
            textconv = ~/local/bin/odscat
    ~~~
    
-2. Put `.gitattributes` into your repository to use the filter, like:
+2. Specify `spreadheet` filter for files with specific extensions. Put following configuration to your `~/.gitattributes`:
    
    ~~~
    *.ods diff=spreadsheet
